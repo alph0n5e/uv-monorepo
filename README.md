@@ -6,6 +6,22 @@ This illustrates a setup with no workspaces, each library and app is meant to be
 
 Local dependencies are indicated with `[tool.uv.sources] myorg-utils = { path = "../utils" }`.
 
+## Overview
+This project presents two skeleton libraries and two applications, with the following depdendencies:
+
+- `libs/utils`, a standalone utility library,
+- `libs/core`, the core buisness logic library, depending on `utils`,
+- `apps/api`, the main API, depending on `core`,
+- `apps/cli`, a CLI application, depdending on both `core` and `utils` (although `utils` is already a dependency of `core`, it is good practice to make it explicit if `cli` uses it directly),
+
+The idea is that:
+- applications *can* depend on one or many libraries,
+- libraries *can* depend on other libraries,
+
+but:
+- libraries **cannot** depend on applications,
+- applications **cannot** depend on other applications,
+
 ## Tooling
 
 Running `ruff check` with `uv tool run` (or `uvx`):
