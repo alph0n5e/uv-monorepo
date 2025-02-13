@@ -1,0 +1,33 @@
+version = 1
+requires-python = ">=3.12"
+
+[[package]]
+name = "myorg-cli"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "myorg-core" },
+    { name = "myorg-utils" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "myorg-core", editable = "../../libs/core" },
+    { name = "myorg-utils", editable = "../../libs/utils" },
+]
+
+[[package]]
+name = "myorg-core"
+version = "0.1.0"
+source = { editable = "../../libs/core" }
+dependencies = [
+    { name = "myorg-utils" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "myorg-utils", editable = "../../libs/utils" }]
+
+[[package]]
+name = "myorg-utils"
+version = "0.1.0"
+source = { editable = "../../libs/utils" }

@@ -1,0 +1,22 @@
+[project]
+name = "myorg-api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Antoine Robert", email = "antoine.al.robert@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "myorg-core",
+]
+
+[project.scripts]
+myorg-api = "myorg.api:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.uv.sources]
+myorg-core = { path = "../../libs/core", editable = true }
